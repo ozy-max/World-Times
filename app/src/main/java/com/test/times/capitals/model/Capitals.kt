@@ -53,7 +53,18 @@ val MINSK = City(
     continentName = "Europe",
     imageFlag = R.drawable.ic_bularus_flag
 )
+val BERLIN = City(
+    capitalName = "Berlin",
+    continentName = "Europe",
+    imageFlag = R.drawable.ic_germany_flag
+)
+val TOKYO = City(
+    capitalName = "Tokyo",
+    continentName = "Asia",
+    imageFlag = R.drawable.ic_japan_flag
+)
+
 
 val listCities = listOf(
-    OTTAWA, WASHINGTON, CANBERRA, STOCKHOLM, BELGRADE, MOSCOW, BISHKEK, LOS_ANGELES, MINSK
+    OTTAWA, WASHINGTON, CANBERRA, STOCKHOLM, BELGRADE, MOSCOW, BISHKEK, LOS_ANGELES, MINSK, BERLIN, TOKYO
 )
