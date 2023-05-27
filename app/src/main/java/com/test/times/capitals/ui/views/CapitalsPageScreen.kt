@@ -5,7 +5,7 @@ import com.test.times.capitals.ui.CapitalsContract
 import com.test.times.capitals.ui.views.CapitalsViewCities
 import com.test.times.capitals.ui.views.CapitalsViewError
 import com.test.times.core.mvi.SIDE_EFFECTS_KEY
-import com.test.times.utils.theme.views.ViewLoading
+import com.test.times.utils.theme.views.ProgressView
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
@@ -31,10 +31,12 @@ fun CapitalsPageScreen(
         }?.collect()
     }
     when {
-        state.isLoading -> ViewLoading()
+        state.isLoading -> ProgressView()
         state.error != null -> CapitalsViewError(state)
-        else -> CapitalsViewCities(cities = listCities) {
-            onEventSent(CapitalsContract.Event.SaveTimeZoneAndNavigate(it.getTimeZone()))
-        }
+        else -> CapitalsViewCities(
+            cities = state.cities ?: emptyList(),
+            onBackButtonClicked = { onEventSent(CapitalsContract.Event.BackButtonClicked) },
+            onClickItem = { onEventSent(CapitalsContract.Event.SaveTimeZoneAndNavigate(it.getTimeZone())) }
+        )
     }
 }

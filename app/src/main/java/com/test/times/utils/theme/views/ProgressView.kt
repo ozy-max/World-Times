@@ -12,7 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.test.times.utils.theme.TimesTheme
 
 @Composable
-fun ViewLoading() {
+fun ProgressView() {
     Box(
         modifier = Modifier.fillMaxSize()
             .background(Color.Black)
@@ -21,13 +21,5 @@ fun ViewLoading() {
             modifier = Modifier.align(Alignment.Center),
             color = Color.White
         )
-    }
-}
-
-@Preview
-@Composable
-fun DailyViewLoading_Preview() {
-    TimesTheme(darkTheme = true) {
-        ViewLoading()
     }
 }

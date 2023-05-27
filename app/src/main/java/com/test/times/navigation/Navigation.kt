@@ -14,9 +14,9 @@ import com.test.times.timer.navigation.TimeScreenDestination
 fun Navigation() {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = Screens.TimesPage.route) {
+    NavHost(navController = navController, startDestination = Screens.TimerPage.route) {
 
-        composable(route = Screens.TimesPage.route) {
+        composable(route = Screens.TimerPage.route) {
             TimeScreenDestination(navController = navController)
         }
 

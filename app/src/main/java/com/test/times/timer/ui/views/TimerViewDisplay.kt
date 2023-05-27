@@ -7,13 +7,10 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -25,11 +22,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.test.times.timer.ui.TimerPageContract
+import com.test.times.utils.theme.components.ButtonView
 import java.time.format.DateTimeFormatter
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun TimesViewDisplay(
+fun TimerViewDisplay(
     state: TimerPageContract.State,
     changeTimeZone: () -> Unit
 ) {
@@ -56,7 +54,7 @@ fun TimesViewDisplay(
                 .padding(top = 16.dp)
                 .fillMaxWidth()
         ) {
-            CustomButton(onClick = { changeTimeZone() }, backgroundColor = Color.DarkGray, text = "CHANGE TIMEZONE")
+            ButtonView(onClick = { changeTimeZone() }, backgroundColor = Color.DarkGray, text = "CHANGE TIMEZONE")
         }
     }
 }
@@ -78,39 +76,4 @@ fun DigitalClock(currentTime: String) {
             modifier = Modifier.padding(16.dp)
         )
     }
-}
-
-@Composable
-private fun CustomButton(
-    modifier: Modifier = Modifier,
-    backgroundColor: Color,
-    text: String? = null,
-    enabled: Boolean = true,
-    onClick: () -> Unit,
-    content: @Composable RowScope.() -> Unit = {}
-) {
-    Button(
-        modifier = modifier
-            .height(48.dp)
-            .fillMaxWidth()
-            .border(1.dp, Color.White, shape = MaterialTheme.shapes.medium),
-        onClick = onClick,
-        enabled = enabled,
-        colors = ButtonDefaults.buttonColors(
-            backgroundColor = backgroundColor,
-            disabledBackgroundColor = backgroundColor.copy(
-                alpha = 0.3f
-            )
-        )
-    ) {
-        text?.let {
-            Text(
-                text = it,
-                style = TextStyle.Default,
-                color = Color.White
-            )
-        } ?: content.invoke(this)
-    }
-
-
 }

@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.test.times.timer.ui.TimerPageContract
-import com.test.times.timer.ui.views.TimesPageScreen
+import com.test.times.timer.ui.views.TimerPageScreen
 import com.test.times.timer.ui.TimerPageViewModel
 import com.test.times.navigation.Screens
 
@@ -16,7 +16,7 @@ fun TimeScreenDestination(
     navController: NavController,
 ) {
     val viewModel = hiltViewModel<TimerPageViewModel>()
-    TimesPageScreen(
+    TimerPageScreen(
         state = viewModel.viewState.value,
         effectFlow = viewModel.effect,
         onEventSent = { event -> viewModel.setEvent(event) },

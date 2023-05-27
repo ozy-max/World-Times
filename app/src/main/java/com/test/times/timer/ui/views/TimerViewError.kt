@@ -21,7 +21,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.test.times.R
 import com.test.times.timer.ui.TimerPageContract
-import com.test.times.utils.theme.components.CustomButton
+import com.test.times.utils.theme.components.ButtonView
 
 @Composable
 fun TimesViewError(
@@ -56,10 +56,10 @@ fun TimesViewError(
                         color = Color.White,
                         textAlign = TextAlign.Center
                     )
-                    CustomButton(
+                    ButtonView(
                         modifier = Modifier.fillMaxWidth(),
                         backgroundColor = Color.DarkGray,
-                        text = stringResource(id = R.string.action_refresh),
+                        text = stringResource(id = R.string.capitals_action_refresh),
                         onClick = onReloadClick
                     )
                 }

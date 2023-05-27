@@ -6,14 +6,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import com.test.times.core.mvi.SIDE_EFFECTS_KEY
 import com.test.times.timer.ui.TimerPageContract
-import com.test.times.utils.theme.views.ViewLoading
+import com.test.times.utils.theme.views.ProgressView
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun TimesPageScreen(
+fun TimerPageScreen(
     state: TimerPageContract.State,
     effectFlow: Flow<TimerPageContract.Effect>?,
     onEventSent: (event: TimerPageContract.Event) -> Unit,
@@ -29,12 +29,12 @@ fun TimesPageScreen(
         }?.collect()
     }
     when {
-        state.isLoading -> ViewLoading()
+        state.isLoading -> ProgressView()
         state.error != null -> TimesViewError(state) {
             onEventSent(TimerPageContract.Event.Retry)
         }
 
-        else -> TimesViewDisplay(state = state) {
+        else -> TimerViewDisplay(state = state) {
             onEventSent(TimerPageContract.Event.ButtonSelection)
         }
     }

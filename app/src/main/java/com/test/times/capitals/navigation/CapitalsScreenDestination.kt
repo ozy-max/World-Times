@@ -17,7 +17,9 @@ fun CapitalsScreenDestination(navController: NavController) {
         onEventSent = { event -> viewModel.setEvent(event) },
         onNavigationRequested = { navigationEffect ->
             if (navigationEffect is CapitalsContract.Effect.Navigation.ToTimePage) {
-                navController.navigate(Screens.TimesPage.route)
+                navController.navigate(Screens.TimerPage.route)
+            }else if (navigationEffect is CapitalsContract.Effect.Navigation.Back) {
+                navController.popBackStack()
             }
         }
     )

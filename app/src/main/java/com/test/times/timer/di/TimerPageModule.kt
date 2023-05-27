@@ -18,13 +18,13 @@ import javax.inject.Singleton
 abstract class TimerPageModule {
 
     @Binds
-    abstract fun bindTimesRemoteRepository(
-        timesRemoteRepository: TimerPageRemoteRepositoryImpl
+    abstract fun bindTimerRemoteRepository(
+        timerRemoteRepository: TimerPageRemoteRepositoryImpl
     ): TimerPageRemoteRepository
 
     @Binds
-    abstract fun bindTimesPageLocalRepository(
-        timesPageLocalRepository: TimerPageLocalRepositoryImpl
+    abstract fun bindTimerPageLocalRepository(
+        timerPageLocalRepository: TimerPageLocalRepositoryImpl
     ): TimerPageLocalRepository
 
     companion object {

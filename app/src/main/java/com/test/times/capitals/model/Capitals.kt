@@ -48,7 +48,12 @@ val LOS_ANGELES = City(
     continentName = "America",
     imageFlag = R.drawable.ic_usa_flag
 )
+val MINSK = City(
+    capitalName = "Minsk",
+    continentName = "Europe",
+    imageFlag = R.drawable.ic_bularus_flag
+)
 
 val listCities = listOf(
-    OTTAWA, WASHINGTON, CANBERRA, STOCKHOLM, BELGRADE, MOSCOW, BISHKEK, LOS_ANGELES
+    OTTAWA, WASHINGTON, CANBERRA, STOCKHOLM, BELGRADE, MOSCOW, BISHKEK, LOS_ANGELES, MINSK
 )

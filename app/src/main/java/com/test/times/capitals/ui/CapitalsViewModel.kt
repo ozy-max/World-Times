@@ -1,5 +1,6 @@
 package com.test.times.capitals.ui
 
+import com.test.times.capitals.model.listCities
 import com.test.times.core.mvi.BaseViewModel
 import com.test.times.timer.interactor.TimerPageInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -31,10 +32,11 @@ class CapitalsViewModel @Inject constructor(
         }
     }
 
-    private fun saveTimeZone(timeZone: String? = null) {
+    fun saveTimeZone(timeZone: String? = null) {
         launch {
+            setState { copy(isLoading = true, error = null) }
             try {
-                setState { copy(isLoading = true, error = null) }
+                setState { copy(cities = listCities, isLoading = false, error = null) }
                 timeZone?.let { timesPageInteractor.saveTimeZone(it) }
                 setState { copy(isLoading = false, error = null) }
             } catch (e: CancellationException) {
