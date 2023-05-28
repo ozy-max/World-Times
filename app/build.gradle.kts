@@ -62,7 +62,6 @@ dependencies {
     //Core
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime)
-    testImplementation("org.junit.jupiter:junit-jupiter")
 
     //Compose
     val composeBom = platform(libs.androidx.compose.bom)
@@ -114,16 +113,4 @@ dependencies {
 
     //Navigation Graph
     implementation(libs.androidx.navigation.compose)
-
-    //Tests
-    androidTestImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.kotlinx.coroutines.test)
-    testImplementation("io.mockk:mockk:1.12.4")
-    testImplementation("junit:junit:4.13.2")
-    testImplementation("org.mockito:mockito-core:4.0.0")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1")
-    testImplementation("androidx.arch.core:core-testing:2.2.0")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.2")
 }

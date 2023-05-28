@@ -2,7 +2,7 @@ package com.test.times.capitals.model
 
 import com.test.times.R
 
-val OTTAWA = City(
+val OSLO = City(
     capitalName = "Oslo",
     continentName = "Europe",
     imageFlag = R.drawable.ic_norway_flag
@@ -66,5 +66,5 @@ val TOKYO = City(
 
 
 val listCities = listOf(
-    OTTAWA, WASHINGTON, CANBERRA, STOCKHOLM, BELGRADE, MOSCOW, BISHKEK, LOS_ANGELES, MINSK, BERLIN, TOKYO
+    OSLO, WASHINGTON, CANBERRA, STOCKHOLM, BELGRADE, MOSCOW, BISHKEK, LOS_ANGELES, MINSK, BERLIN, TOKYO
 )
