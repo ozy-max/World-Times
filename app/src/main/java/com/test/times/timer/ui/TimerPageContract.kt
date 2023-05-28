@@ -10,7 +10,6 @@ class TimerPageContract {
         object Retry : Event()
         object ButtonSelection : Event()
     }
-
     data class State(
         val dateTime: String? = null,
         val timeZone: String? = null,

@@ -32,7 +32,7 @@ class CapitalsViewModel @Inject constructor(
         }
     }
 
-    fun saveTimeZone(timeZone: String? = null) {
+    private fun saveTimeZone(timeZone: String? = null) {
         launch {
             setState { copy(isLoading = true, error = null) }
             try {
