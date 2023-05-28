@@ -56,7 +56,10 @@ class TimerPageViewModel @Inject constructor(
                         val currentTime = timesPageInteractor.getCurrentTimeByTimeZone()
                         currentTime.data?.timeZone?.let { timesPageInteractor.saveTimeZone(it) }
                         currentTime.data?.dateTime?.let { timer.start(it) }
-                        currentTime.data?.timeZone?.let { updateTimer(it) }
+                        currentTime.data?.let { data ->
+                            updateTimer(data.timeZone.toString(), data.date)
+                        }
+                        currentTime.data?.timeZone?.let { }
                     }
 
                     is Resource.Error -> {
@@ -73,11 +76,19 @@ class TimerPageViewModel @Inject constructor(
         }
     }
 
-    private fun updateTimer(timeZone: String) {
+    private fun updateTimer(timeZone: String, date: String) {
         launch {
             try {
                 timer.currentTimeFlow.collect { dateTime ->
-                    setState { copy(dateTime = dateTime, timeZone = timeZone, isLoading = false, error = null) }
+                    setState {
+                        copy(
+                            dateTime = dateTime,
+                            timeZone = timeZone,
+                            date = date,
+                            isLoading = false,
+                            error = null
+                        )
+                    }
                 }
             } catch (t: Throwable) {
                 Timber.e(t)

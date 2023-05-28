@@ -14,6 +14,7 @@ class TimerPageContract {
     data class State(
         val dateTime: String? = null,
         val timeZone: String? = null,
+        val date: String? = null,
         val isLoading: Boolean = false,
         val error: String? = null
     ) : ViewState

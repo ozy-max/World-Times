@@ -10,7 +10,6 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
-import timber.log.Timber
 import javax.inject.Inject
 
 private const val MILLI_SECONDS_RANGE = 1000L
@@ -41,7 +40,6 @@ class Timer @Inject constructor(
     }
 
     override fun stop() {
-        Timber.d("TIMER_STOPPED")
         if (isRunning) {
             isRunning = false
             job?.cancel()

@@ -5,6 +5,7 @@ import androidx.annotation.RequiresApi
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
 import java.util.Date
 import java.util.Locale
 import java.util.TimeZone
@@ -24,10 +25,5 @@ object TimeConverter {
         val dateFormat = SimpleDateFormat(TIME_FORMAT_PATTERN, Locale.getDefault())
         dateFormat.timeZone = TimeZone.getTimeZone(TIME_ZONE)
         return dateFormat.format(Date(time))
-    }
-
-    fun formatTimeZone(timeZone: String): String {
-        val data = timeZone.split("/")
-        return buildString { append(data.first()).append(" -> ").append(data.last()) }
     }
 }

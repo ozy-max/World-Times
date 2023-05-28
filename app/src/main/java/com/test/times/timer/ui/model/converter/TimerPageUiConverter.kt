@@ -15,6 +15,7 @@ class TimerPageUiConverter @Inject constructor(
     override fun convert(data: CurrentTime): Resource<CurrentTimeUi> {
        return Resource.Success(CurrentTimeUi(
            dateTime = TimeConverter.parseStringToTimestamp(data.dateTime),
+           date = data.date.toString(),
            timeZone = data.timeZone
        ))
     }

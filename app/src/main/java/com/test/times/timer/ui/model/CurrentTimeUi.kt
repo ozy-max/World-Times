@@ -6,5 +6,6 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class CurrentTimeUi(
     val dateTime: Long,
+    val date: String,
     val timeZone: String?
 ) : Parcelable
